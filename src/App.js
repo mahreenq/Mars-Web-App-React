@@ -78,7 +78,7 @@ componentDidMount(){
         <div>
         <h1> Welcome</h1>
         <h1> Please register below </h1>
-        <img src="https://img.webme.com/pic/u/ufovisitors/marsspinning.gif"/>
+        <img src="assets/mars.gif"/>
       {/*  <img src="https://media.giphy.com/media/i7LFEbXRgrYSQ/giphy.gif"/> */}
          </div>
 
