@@ -46,7 +46,7 @@ class Register extends Component {
     this.setState(  { [event.target.name]: event.target.value });
   }
   handleSubmit(event) {
-  event.preventDefault();
+
    axios.post("https://red-wdp-api.herokuapp.com/api/mars/colonists",
    { "colonist":{"name":this.state.name,
                   "age": this.state.age,
@@ -78,7 +78,9 @@ componentDidMount(){
         <div>
         <h1> Welcome</h1>
         <h1> Please register below </h1>
-        </div>
+        <img src="https://img.webme.com/pic/u/ufovisitors/marsspinning.gif"/>
+      {/*  <img src="https://media.giphy.com/media/i7LFEbXRgrYSQ/giphy.gif"/> */}
+         </div>
 
         <div className="justify-content-center flex padding-top-med">
               <form className="register" onSubmit={this.handleSubmit}>
@@ -90,12 +92,12 @@ componentDidMount(){
 
             <div className="regform flex justify-content-space-between">
             AGE
-            <input type="number" name="age" value={this.state.age} onChange={(event) => this.handleChange(event)}/> </div>
+            <input type="number" name="age" value={this.state.age} onChange={this.handleChange}/> </div>
 
 
             <div className="regform flex justify-content-space-between">
             OCCUPATION
-            <select value={this.state.job}  name="job" onChange={(event) => this.handleChange(event)}>
+            <select value={this.state.job}  name="job" onChange={this.handleChange}>
              <option value="" > Choose Job</option>
               {this.state.jobs.map(job =>
                 <option value={job.id} >{job.name}  </option>
@@ -104,7 +106,7 @@ componentDidMount(){
             </div>
 
             <Link to = '/getencounters'>
-            <input className="submit" type="submit" value="Check In" />
+            <input className="submit" type="submit" value="Check In " onClick={this.handleSubmit} />
             </Link>
               </form>
         </div>
@@ -180,13 +182,17 @@ class ReportAliens extends Component{
         <div> ACTION TAKEN
         <textarea className="flex" type="text" name="action"  value = {this.state.action} onChange={this.handleChange}> </textarea>
         </div>
-
+        <div>
         <Link to = '/getencounters'>
         <input className="submitReportAlien" type="submit" value="SUBMIT" onClick={this.handleSubmit} />
         </Link>
+        </div>
       </form>
 
-      <div className="navHome"> <Link to = '/'> HOME </Link></div>
+      <div className="navHome navHomeEnc flex flex-dir-col">
+      <Link to = '/'> HOME </Link>
+      <Link to = '/getencounters'> GO BACK </Link>
+      </div>
 
       </div>
     );
@@ -219,16 +225,23 @@ class GetEncounters extends Component {
    return (
      <div className="background getencounterspage">
 
-     <div className="getEncountersHeader ">
-     <i class="fa fa-home" aria-hidden="true"></i>
+     <div className="getEncountersHeader flex justify-content-center">
+    <div> <img className="astro" src="https://media.giphy.com/media/wET3URacPVM9G/giphy.gif"/> </div>
+    <div>
      See an alien? Report it
      <div><Link to = '/reportaliens'> HERE </Link></div>
      </div>
 
+     </div>
+
      <div className="getEncountersBody">
+     <h1> Recent Encounters</h1>
        {this.state.encounters.map(encounter =>
-         <p key={encounter.id} >{encounter.date} {encounter.atype}
-         {encounter.action} </p>
+         <p key={encounter.id} >
+         <div><span className="Roboto">DATE:</span> {encounter.date}</div>
+         <div><span className="Roboto">ALIEN:</span> {encounter.atype}</div>
+         <div><span className="Roboto">ACTION:</span> {encounter.action}</div>
+         </p>
        )}
       </div>
     <div className="navHome"> <Link to = '/'> HOME </Link></div>

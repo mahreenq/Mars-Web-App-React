@@ -3,7 +3,7 @@
   background: linear-gradient(
     rgba(0,0,0,0.3),
     rgba(0,0,0,1)),
-    
+
     url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg");
   background-position: bottom;
 ;
@@ -11,7 +11,8 @@
   height: 90vh;
   color: white;
   font-family: 'Questrial', sans-serif;
-  padding-top: 15rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   font-size: 1.5rem;
 }
 
@@ -63,6 +64,7 @@ select{
       rgba(0,0,0,0.8)),
       url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg");
       background-position: bottom;
+
 }
 
 
@@ -133,6 +135,13 @@ textarea {
   bottom: 0;
 }
 
+.navHomeEnc{
+  width: 100%;
+  font-size:initial;
+  padding-left: 4rem;
+
+}
+
 
 .whiteBorder{
   border: 2px solid white;
@@ -158,4 +167,11 @@ textarea {
 }
 .flex-dir-col{
   flex-direction: column;
+}
+.Roboto{
+  font-family: 'Roboto', sans-serif;
+}
+
+.astro{
+  width: 110px;
 }
