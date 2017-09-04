@@ -179,7 +179,7 @@ class ReportAliens extends Component{
         </select>
       </div>
 
-        <div> ACTION TAKEN
+        <div className="actionTaken"> ACTION TAKEN
         <textarea className="flex" type="text" name="action"  value = {this.state.action} onChange={this.handleChange}> </textarea>
         </div>
         <div>
