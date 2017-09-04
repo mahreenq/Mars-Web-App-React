@@ -4,7 +4,7 @@
     rgba(0,0,0,0.3),
     rgba(0,0,0,1)),
 
-    url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg");
+    url("/assets/galaxy.jpg");
   background-position: bottom;
 ;
   background-repeat: no-repeat;
@@ -62,7 +62,7 @@ select{
     background: linear-gradient(
       rgba(0,0,0,0.8),
       rgba(0,0,0,0.8)),
-      url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg");
+      url("/assets/galaxy.jpg");
       background-position: bottom;
 
 }
