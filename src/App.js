@@ -66,30 +66,36 @@ class Register extends Component {
 
   render() {
     return (
-        <div className="App-intro">
-    <form onSubmit={this.handleSubmit}>
+        <div className="App-intro background text-align-center">
 
-            <div> NAME <input type="text" name="name"  value = {this.state.name} onChange={this.handleChange}/> </div>
+        <div>
+        <h1> Welcome</h1>
+        <h1> Please register below </h1>
+        </div>
 
-            <div> AGE <input type="number" name="age" value={this.state.age} onChange={this.handleChange}/> </div>
+        <div className="justify-content-center flex padding-top-med">
+              <form className="register" onSubmit={this.handleSubmit}>
+
+            <div className="regform flex justify-content-space-between"> NAME <input type="text" name="name"  value = {this.state.name} onChange={this.handleChange}/> </div>
+
+            <div className="regform flex justify-content-space-between"> AGE <input type="number" name="age" value={this.state.age} onChange={this.handleChange}/> </div>
 
 
-            <div> OCCUPATION MAPS
+            <div className="regform flex justify-content-space-between"> OCCUPATION
             <select value={this.state.value} onChange={this.handleChange} name="job">
              <option value="" > Choose Job</option>
               {this.state.jobs.map(job =>
                 <option value={job.id} >{job.name}  </option>
-
               )}
             </select>
             </div>
 
-            <Link to = '/getencounters'><input type="submit" value="Submit" /></Link>
-        </form>
-
+            <Link to = '/getencounters'><input className="submit" type="submit" value="Submit" /></Link>
+              </form>
         </div>
 
 
+        </div>
     );
 
   }
@@ -139,33 +145,45 @@ class ReportAliens extends Component{
   handleSubmit(event) {
 
     axios.post("https://red-wdp-api.herokuapp.com/api/mars/encounters",
-    { "encounter":{"atype":this.state.alientype,
+    { "encounter":{"atype":this.state.alien,
                    "date": new Date(),
                    "action" : this.state.action,
                    "colonist_id": 5000}
    })
-
   }
-
   render() {
     return (
+      <div className="reportAliensPage background flex justify-content-center">
+      
+
       <form onSubmit={this.handleSubmit}>
+      <h1> Submit your alien encounter below </h1>
 
-
-      <select value ={this.state.value} onChange={this.handleChange} name="alientype">
+      <div className=" flex justify-content-space-between selectAlien"> WHICH ALIEN DID YOU SEE
+      <select value ={this.state.value} onChange={this.handleChange} name="alien">
           <option value="" > Choose Alien</option>
         {this.state.aliens.map(alien =>
-          <option value={alien.type} > {alien.type} </option>
+          <option value={alien.id} > {alien.type} </option>
         )}
         </select>
+      </div>
 
-        <div> ACTION TAKEN <input type="text" name="action"  value = {this.state.action} onChange={this.handleChange}/> </div>
+        <div> ACTION TAKEN
+        <textarea className="flex" type="text" name="action"  value = {this.state.action} onChange={this.handleChange}> </textarea>
+        </div>
 
-        <Link to = '/getencounters'><input type="submit" value="Submit" /></Link>
+        <Link to = '/getencounters'><input className="submitReportAlien" type="submit" value="SUBMIT" /></Link>
       </form>
+
+      <div className="navHome"> <Link to = '/'> HOME </Link></div>
+
+      </div>
     );
   }
 }
+
+
+
 
 
 
@@ -188,14 +206,26 @@ class GetEncounters extends Component {
 }
  render() {
    return (
-     <div>
-     <Link to = '/reportaliens'><div> Report Encounters </div></Link>
+     <div className="background getencounterspage">
 
+     <div className="getEncountersHeader ">
+     <i class="fa fa-home" aria-hidden="true"></i>
+     See an alien? Report it
+     <div><Link to = '/reportaliens'> HERE </Link></div>
+     </div>
+
+
+
+
+     <div className="getEncountersBody">
        {this.state.encounters.map(encounter =>
          <p key={encounter.id} >{encounter.date} {encounter.atype}
          {encounter.action} </p>
        )}
-     </div>
+      </div>
+    <div className="navHome"> <Link to = '/'> HOME </Link></div>
+
+</div>
    );
  }
 }

@@ -1,24 +1,161 @@
-.App {
-  text-align: center;
+
+.background{
+  background: linear-gradient(
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,1)),
+    
+    url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg");
+  background-position: bottom;
+;
+  background-repeat: no-repeat;
+  height: 90vh;
+  color: white;
+  font-family: 'Questrial', sans-serif;
+  padding-top: 15rem;
+  font-size: 1.5rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/*HOMEPAGE*/
+
+input {
+    height: 1.5rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+select{
+  height: 2rem;
+  border: 2px solid white;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.4);
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.submit{
+  width: 120px;
+  font-size: 1.3rem;
+  height: 2rem;
+  margin-top: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.regform{
+  width: 360px;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+
+/*GET ENCOUNTERS PAGE*/
+.getencounterspage{
+    text-align: center;
+    height: 100%;
+    background-repeat:repeat;
+    font-size: 1rem;
+    padding:0;
+    background: linear-gradient(
+      rgba(0,0,0,0.8),
+      rgba(0,0,0,0.8)),
+      url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg");
+      background-position: bottom;
+}
+
+
+
+.getEncountersHeader{
+
+  background-color: black;
+  height: 50px;
+  font-size: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 2px solid white;
+  position: fixed;
+  top:0;
+  width: 100%;
+}
+
+.getEncountersBody{
+  margin-top: 180px;
+  padding-top: 1rem;
+}
+
+ a{
+   color: inherit;
+   text-decoration: none;
+ }
+ a:hover {
+    color: #990099;
+}
+
+/*REPORT ALIENS PAGE*/
+
+.reportAliensPage{
+    line-height: 2rem;
+}
+.reportAliensPage h1{
+  line-height: 4rem;
+}
+.reportAliensPage form{
+  width: 90%;
+}
+
+
+.selectAlien{
+  width: 400px;
+  padding-bottom: 3rem;
+}
+
+.submitReportAlien{
+  margin-top: 2rem;
+  width: 150px;
+  height: 2rem;
+}
+textarea {
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  height: 8rem;
+  width: 400px;
+  padding: 12px 20px;
+  box-sizing: border-box;;
+  resize:none;
+}
+
+.navHome{
+  text-align: left;
+  position: fixed;
+  bottom: 0;
+}
+
+
+.whiteBorder{
+  border: 2px solid white;
+}
+.white{
+  color: white;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.flex{
+  display: flex;
+}
+.text-align-center{
+  text-align:center;
+}
+.padding-top-med{
+  padding-top: 2rem;
+}
+.flex-dir-col{
+  flex-direction: column;
 }
