@@ -27,7 +27,6 @@ input {
 }
 input[type=text]:focus , input[type=number]:focus {
   width: 60%;
-
   outline: none;
 }
 
@@ -55,7 +54,10 @@ select{
   padding: 0.5rem;
   font-size: 1.5rem;
 }
-
+#error , #error2{
+  padding: 1rem;
+  color: red;
+}
 
 /*GET ENCOUNTERS PAGE*/
 .getencounterspage{
@@ -90,6 +92,19 @@ select{
 .getEncountersBody{
   margin-top: 180px;
   padding-top: 1rem;
+  background:
+  url("/assets/astro.webp"),
+  url("/assets/astro.webp"),
+  url("/assets/astro.webp"),
+  url("/assets/astro.webp");
+  background-position: 0px 0px, 900px 0px, 50px 600px, 600px 300px;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 10%;
+  animation: animatedBackground 40s linear infinite;
+}
+@keyframes animatedBackground {
+  from{background-position: 0 0, 100 100, 0 0, 100 100 ;}
+  to{background-position: 100% 1%, 0% 1%, 100% 1%, 0% 1%;}
 }
 
  a{
@@ -231,14 +246,7 @@ textarea {
 .alienImage{
   display: none;
 }
-.alienImage2{
-  display: block;
-}
-.alienImage2 img {
-  width: 50%;
-  padding-top: 12rem;
 
-}
 .navHomeEnc{
   width: 100%;
   font-size:initial;
