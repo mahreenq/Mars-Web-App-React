@@ -3,12 +3,10 @@
   background: linear-gradient(
     rgba(0,0,0,0.3),
     rgba(0,0,0,1)),
-
     url("/assets/galaxy.jpg");
   background-position: bottom;
-;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 95vh;
   color: white;
   font-family: 'Questrial', sans-serif;
   padding-top: 5rem;
@@ -24,6 +22,13 @@ input {
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.4);
     color: white;
+    width: 35%;
+    transition: width 0.6s ease-in-out;
+}
+input[type=text]:focus , input[type=number]:focus {
+  width: 60%;
+
+  outline: none;
 }
 
 select{
@@ -117,6 +122,7 @@ select{
   margin-top: 2rem;
   width: 150px;
   height: 2rem;
+
 }
 
 .actionTaken{
@@ -138,12 +144,13 @@ textarea {
   position: fixed;
   bottom: 0;
   background-color: black;
+  border-top: 1px solid white;
+
 }
 
 .navHomeEnc{
   width: 100%;
   font-size:initial;
-  padding-left: 4rem;
 
 }
 
@@ -158,6 +165,9 @@ textarea {
 .justify-content-space-between {
   justify-content: space-between;
 }
+.justify-content-space-around{
+  justify-content: space-around;
+}
 .flex{
   display: flex;
 }
@@ -167,8 +177,17 @@ textarea {
 .padding-top-med{
   padding-top: 2rem;
 }
+.padding-bottom-med{
+  padding-bottom: 2rem;
+}
 .flex-dir-col{
   flex-direction: column;
+}
+.align-items-center{
+  align-items: center;
+}
+.padding-none{
+  padding: 0;
 }
 .Roboto{
   font-family: 'Roboto', sans-serif;
@@ -176,21 +195,59 @@ textarea {
 .astro{
   width: 110px;
 }
+.alienImage img{
+  width: 250px;
+}
+.alienImage2{
+  display: none;
+}
 
-
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:650px) {
 
 .selectAlien{
   width: 600px;
+  text-align: left;
+  flex-direction: row;
 }
 .selectAlien select{
   width: 200px;
 }
 .actionTaken{
   width: 600px;
+  text-align: left;
 }
 .actionTaken textarea{
   width: 600px;
+}
+.reportAliensPage{
+  padding-left: 3rem;
+}
+.reportAliensPage h1{
+  text-align: left;
+}
+.submitResponsive{
+  justify-content: flex-start;
+}
+.alienImage{
+  display: none;
+}
+.alienImage2{
+  display: block;
+}
+.alienImage2 img {
+  width: 50%;
+  padding-top: 12rem;
+
+}
+.navHomeEnc{
+  width: 100%;
+  font-size:initial;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 3rem;
+}
+.lala{
+  width: 50%;
 }
 
 }

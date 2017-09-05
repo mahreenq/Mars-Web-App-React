@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
-import { BrowserRouter ,Route,Link } from 'react-router-dom'
+import { BrowserRouter ,Route,Link, Switch } from 'react-router-dom'
 
 
 
@@ -19,9 +19,12 @@ class App extends Component{
       <BrowserRouter>
 
       <div>
+      <Switch>
       <Route exact path='/' component={Register}/>
       <Route path='/reportaliens' component={ReportAliens} />
       <Route path='/getencounters' component={GetEncounters} />
+      <Route  component={Errors} />
+      </Switch>
       </div>
 
       </BrowserRouter>
@@ -47,10 +50,15 @@ class Register extends Component {
   }
   handleSubmit(event) {
 
+    if (this.state.name  == "" || this.state.age =="" || !this.state.job) {
+        alert("Please complete required fields");
+        event.preventDefault();
+    } else {
+
    axios.post("https://red-wdp-api.herokuapp.com/api/mars/colonists",
    { "colonist":{"name":this.state.name,
                   "age": this.state.age,
-                  "job" : this.state.job}
+                  "job_id" : this.state.job}
   })
   .then(function(response) {
   console.log(response);
@@ -59,8 +67,11 @@ class Register extends Component {
   console.log(error);
 });
 }
+}
 
 componentDidMount(){
+
+
  axios.get("https://red-wdp-api.herokuapp.com/api/mars/jobs")
    .then(res => {
      const jobs = res.data.jobs;
@@ -79,7 +90,7 @@ componentDidMount(){
         <h1> Welcome</h1>
         <h1> Please register below </h1>
         <img src="assets/mars.gif"/>
-      {/*  <img src="https://media.giphy.com/media/i7LFEbXRgrYSQ/giphy.gif"/> */}
+
          </div>
 
         <div className="justify-content-center flex padding-top-med">
@@ -87,7 +98,7 @@ componentDidMount(){
 
             <div className="regform flex justify-content-space-between">
             NAME
-            <input type="text" name="name"  value = {this.state.name} onChange={this.handleChange}/>
+            <input id="roll-input" type="text" name="name"  value = {this.state.name} onChange={this.handleChange}/>
             </div>
 
             <div className="regform flex justify-content-space-between">
@@ -136,6 +147,11 @@ class ReportAliens extends Component{
 
   handleSubmit(event) {
 
+    if (this.state.alien  == "" || this.state.action =="") {
+        alert("Please complete required fields");
+        event.preventDefault();
+    } else {
+
     axios.post("https://red-wdp-api.herokuapp.com/api/mars/encounters",
     { "encounter":{"atype":this.state.alien,
                    "date": new Date(),
@@ -148,7 +164,7 @@ class ReportAliens extends Component{
  .catch(function (error) {
    console.log(error);
  });
-  }
+  }}
 
   componentDidMount(){
    axios.get("https://red-wdp-api.herokuapp.com/api/mars/aliens")
@@ -167,10 +183,19 @@ class ReportAliens extends Component{
       <div className="reportAliensPage background flex justify-content-center">
 
 
-      <form onSubmit={this.handleSubmit}>
-      <h1> Submit your alien encounter below </h1>
+      <form  onSubmit={this.handleSubmit}>
 
-      <div className=" flex justify-content-space-between selectAlien"> WHICH ALIEN DID YOU SEE
+      <h1 className="text-align-center">
+      Submit your alien encounter below
+      </h1>
+
+      <div className="alienImage flex align-items-center justify-content-center padding-top-med padding-bottom-med">
+      <img src="https://media.giphy.com/media/3og0IVcYfFPzFp1gFG/giphy.gif"/>
+      </div>
+
+
+      <div className=" flex justify-content-space-between selectAlien flex-dir-col text-align-center ">
+      <div className="padding-bottom-med">WHICH ALIEN DID YOU SEE </div>
       <select name="alien" value ={this.state.value} onChange={this.handleChange} >
           <option value="" > Choose Alien</option>
         {this.state.aliens.map(alien =>
@@ -179,17 +204,21 @@ class ReportAliens extends Component{
         </select>
       </div>
 
-        <div className="actionTaken"> ACTION TAKEN
+        <div className="actionTaken text-align-center">
+        <div className="padding-bottom-med">ACTION TAKEN</div>
         <textarea className="flex" type="text" name="action"  value = {this.state.action} onChange={this.handleChange}> </textarea>
         </div>
-        <div>
+
+        <div className="flex justify-content-center submitResponsive">
         <Link to = '/getencounters'>
         <input className="submitReportAlien" type="submit" value="SUBMIT" onClick={this.handleSubmit} />
         </Link>
         </div>
+
       </form>
 
-      <div className="navHome navHomeEnc flex flex-dir-col">
+
+      <div className="navHome navHomeEnc flex justify-content-space-around">
       <Link to = '/'> HOME </Link>
       <Link to = '/getencounters'> GO BACK </Link>
       </div>
@@ -198,10 +227,6 @@ class ReportAliens extends Component{
     );
   }
 }
-
-
-
-
 
 
 
@@ -251,8 +276,18 @@ class GetEncounters extends Component {
  }
 }
 
-
-
-
+class Errors extends Component{
+  constructor(props) {
+    super(props);
+  }
+  render(){
+    return (
+<div className="background">
+<h1> PAGE NOT FOUND </h1>
+<div > <Link to = '/'> GO BACK HOME </Link></div>
+</div>
+    );
+  }
+}
 
 export default App;
