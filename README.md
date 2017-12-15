@@ -1,3 +1,9 @@
+JSX, CSS3, React.js
+
+ASK: Design and build a fictional sci-fi web application where users of different occupations are able to log in, post their encounter with an ‘alien type’ and also view other member’s encounters.
+
+FINISHED PRODUCT: This was my first web application built using React. GET and POST HTTP requests are made using Axios. Hosted on Heroku.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
